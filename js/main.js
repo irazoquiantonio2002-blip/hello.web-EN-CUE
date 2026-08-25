@@ -1,5 +1,6 @@
 const socialLinks = {
-  instagram: "https://www.instagram.com/encue7cuerpos?igsh=eXRpNjNianJoMWdx"
+  instagram: "https://www.instagram.com/encue7cuerpos?igsh=eXRpNjNianJoMWdx",
+  whatsappNumber: "527291189182"
 };
 
 window.addEventListener("load", () => {
@@ -99,12 +100,8 @@ form?.addEventListener("submit", async (event) => {
   }
 
   const text = `Hola EN-CUE, soy ${name}. Me interesa: ${interest}. ${message}`;
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch {
-    window.prompt("Copia este mensaje para enviarlo a EN-CUE:", text);
-  }
-  window.open(socialLinks.instagram, "_blank", "noopener,noreferrer");
+  const waLink = `https://wa.me/${socialLinks.whatsappNumber}?text=${encodeURIComponent(text)}`;
+  window.open(waLink, "_blank", "noopener,noreferrer");
 });
 
 const canvas = document.getElementById("hero-canvas");
